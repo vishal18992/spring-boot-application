@@ -1,0 +1,38 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="/root/layout::Layout(~{::div})">
+    <div class="oe_website_login_container">
+            <form class="oe_login_form" role="form" method="post" th:action="@{/web/login}" th:object="${loginData}">
+            <div class="mb-3 field-login">
+                <label for="login" class="form-label">Email</label>
+                <input type="text" placeholder="Email" name="login"
+                       id="login" required="required"
+                       autofocus="autofocus" autocapitalize="off" class="form-control"
+                       th:value="${loginData.login}"
+                        th:classappend="${#fields.hasErrors('login') ? 'is-invalid' : ''}"
+                />
+                <div th:each="e : ${#fields.errors('login')}" th:text="${e}" class="invalid-feedback"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" placeholder="Password" name="password"
+                       id="password" required="required"
+                       autocomplete="current-password"
+                       class="form-control" th:value="${loginData.password}"
+                       th:classappend="${#fields.hasErrors('password') ? 'is-invalid': ''}"
+                />
+                <div th:each="e : ${#fields.errors('password')}" th:text="${e}" class="invalid-feedback"/>
+            </div>
+
+            <div class="clearfix oe_login_buttons text-center gap-1 d-grid mb-1 pt-3">
+                <button type="submit" class="btn btn-primary">Log in</button>
+                <div class="justify-content-between mt-2 d-flex small">
+                    <a href="/web/signup">Don't have an account?</a>
+                    <a href="/web/reset_password">Reset Password</a>
+                </div>
+                <p >
+
+                </p>
+            </div>
+        </form>
+    </div>
+</html>

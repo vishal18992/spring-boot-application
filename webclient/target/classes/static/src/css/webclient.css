@@ -1,0 +1,20 @@
+.oe_login_form{
+    max-width: 300px;
+    position: relative;
+    margin: 50px auto;
+}
+.btn-fill-primary:hover, .btn-primary:hover{
+    color: #FFFFFF;
+    background-color: #2d8084;
+    border-color: #2a797c;
+}
+.btn-check:checked + .btn-fill-primary, .btn-check:checked + .btn-primary, .btn-check:active + .btn-fill-primary, .btn-check:active + .btn-primary, .btn-fill-primary:active, .btn-primary:active, .btn-fill-primary.active, .active.btn-primary, .show > .btn-fill-primary.dropdown-toggle, .show > .dropdown-toggle.btn-primary{
+    color: #FFFFFF;
+    background-color: #2a797c;
+    border-color: #287175;
+}
+.btn-fill-primary, .btn-primary {
+    color: #FFFFFF;
+    background-color: #35979c;
+    border-color: #35979c;
+}

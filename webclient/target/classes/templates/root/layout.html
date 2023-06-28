@@ -1,0 +1,10 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="Layout(content)">
+<head th:insert="assets/assets::assets"></head>
+<body>
+<header th:replace="root/navbar::header"></header>
+<main>
+    <div class="container" th:include="${content}"></div>
+</main>
+<footer th:replace="root/footer::footer"></footer>
+</body>
+</html>
