@@ -5,9 +5,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-public class LoginDto {
+public class SignupDto {
 
+    public SignupDto(){}
     private long id;
+
+    @NotBlank(message = "Name can not be empty !!")
+    private String name;
 
     @NotBlank(message = "User name can not be empty !!")
     @Size(min = 4, max = 25, message = "User name must be between 4 to 25 character !!")
@@ -19,9 +23,21 @@ public class LoginDto {
     @Size(min = 4, max = 16, message = "Password must be between 4 to 16 character !!")
     private String password;
 
+
+    @NotBlank(message = "Confirm Password can not be empty !!")
+    private String confirm_password;
+
     private boolean active;
 
     private String role;
+
+    public boolean getActive(){
+        return active;
+    }
+
+    public void setActive(boolean active){
+        this.active = active;
+    }
 
     public String getRole(){
         return role;
@@ -30,6 +46,7 @@ public class LoginDto {
     public void setRole(String role){
         this.role = role;
     }
+
 
     public long getId() {
         return id;
@@ -55,20 +72,20 @@ public class LoginDto {
         this.password = password;
     }
 
-    public boolean getActive() {
-        return active;
+    public String getName() {
+        return name;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Login{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public String getConfirm_password() {
+        return confirm_password;
     }
+
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
+    }
+
 }
