@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="/root/layout::Layout(~{::div})">
+  <div class="oe_contactus">
+    <div class="row">
+      <div class="col-md5">
+        <h1 style="margin-top: 50px;">Contact us</h1>
+      </div>
+    </div>
+<!-- Bootstrap 5 starter form -->
+      <form id="contactForm"
+            th:action="@{/contactus}" method="post">
+        <!-- Name input -->
+        <div class="mb-3">
+          <label class="form-label" for="name">Name</label> <input
+                class="form-control" id="name" name="name" type="text"
+                placeholder="Name" />
+        </div>
+
+        <!-- Email address input -->
+        <div class="mb-3">
+          <label class="form-label" for="emailAddress">Email Address</label>
+          <input class="form-control" id="emailAddress" type="email"
+                 name="email" placeholder="Email Address" />
+        </div>
+
+        <!-- Message input -->
+        <div class="mb-3">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-control" id="message" type="text"
+                    placeholder="Message" style="height: 10rem;" name="description"></textarea>
+        </div>
+
+        <!-- Form submit button -->
+        <div class="d-grid">
+          <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+        </div>
+
+      </form>
+  </div>
+</html>

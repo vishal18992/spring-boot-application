@@ -19,16 +19,16 @@ public class LoginController implements WebContext {
         return "authentication/login";
     }
 
-    @PostMapping(value = "/web/login")
-    public String processLogin(@Valid @ModelAttribute("loginData") LoginDto login, BindingResult result){
-        System.out.println(login);
-        System.out.println(result);
-        if(result.hasErrors()){
-            System.out.println(result);
-            return "authentication/login";
-        }
-        return "index";
-    }
+//    @PostMapping(value = "/web/login")
+//    public String processLogin(@Valid @ModelAttribute("loginData") LoginDto login, BindingResult result){
+//        System.out.println(login);
+//        System.out.println(result);
+//        if(result.hasErrors()){
+//            System.out.println(result);
+//            return "authentication/login";
+//        }
+//        return "index";
+//    }
 
     @Override
     public void addContext(Model model) {

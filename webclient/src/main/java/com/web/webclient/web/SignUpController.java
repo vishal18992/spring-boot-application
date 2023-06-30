@@ -6,6 +6,7 @@ import com.web.webclient.helper.Message;
 import com.web.webclient.model.SignupDto;
 import com.web.webclient.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,9 @@ public class SignUpController{
 
     @Autowired
     private UsersService usersService;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping
     public String signup(Model model){
@@ -45,6 +49,7 @@ public class SignUpController{
             }
 
             signupDto.setActive(true);
+            signupDto.setPassword(passwordEncoder.encode(signupDto.getPassword()));
             signupDto.setRole("ROLE_USER");
             long user  = usersService.create(signupDto);
             model.addAttribute("user", new SignupDto());

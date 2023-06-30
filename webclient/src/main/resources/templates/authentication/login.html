@@ -3,7 +3,7 @@
             <form class="oe_login_form" role="form" method="post" th:action="@{/web/login}" th:object="${loginData}">
             <div class="mb-3 field-login">
                 <label for="login" class="form-label">Email</label>
-                <input type="text" placeholder="Email" name="login"
+                <input type="text" placeholder="Email" name="username"
                        id="login" required="required"
                        autofocus="autofocus" autocapitalize="off" class="form-control"
                        th:value="${loginData.login}"
@@ -25,6 +25,13 @@
 
             <div class="clearfix oe_login_buttons text-center gap-1 d-grid mb-1 pt-3">
                 <button type="submit" class="btn btn-primary">Log in</button>
+
+                <div th:if="${param.error}" class="alert alert-danger">
+                    Invalid login and password
+                </div>
+                <div th:if="${param.logout}" class="alert alert-danger">
+                    You have been logout
+                </div>
                 <div class="justify-content-between mt-2 d-flex small">
                     <a href="/web/signup">Don't have an account?</a>
                     <a href="/web/reset_password">Reset Password</a>
